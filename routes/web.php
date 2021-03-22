@@ -16,18 +16,6 @@ use App\Http\Controllers\homeController;
 
 Route::get('/', function () {
     return view('vIndex');
-<<<<<<< HEAD
-=======
-});
-
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'check']);
-
-Route::get('/register', [RegisterController::class, 'index']);
-
-Route::get('/home', function(){
-    return view('vHome');
->>>>>>> 8a025dde8ca3cd48507e3b7269ea1d880e65a40a
 });
 
 // Route::get('/home', function () {
