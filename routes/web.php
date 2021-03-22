@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vIndex');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/home', function () {
+//     return view('vHome');
+// })->middleware(['auth'])->name('home');
+
+Route::get('/home',[homeController::class, 'index'])->middleware(['auth'])->name('home');
 
 require __DIR__.'/auth.php';
