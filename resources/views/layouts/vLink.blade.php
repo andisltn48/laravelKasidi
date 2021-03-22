@@ -14,7 +14,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <title>Kasidi</title>
 
+<<<<<<< HEAD
     {{-- @include('layout/vNav') --}}
+=======
+    @include('layout/vNav')
+>>>>>>> 8a025dde8ca3cd48507e3b7269ea1d880e65a40a
 
     @yield('content')
 
