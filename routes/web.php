@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\userProfileController;
+use App\Http\Controllers\saldoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +25,8 @@ Route::get('/', function () {
 // })->middleware(['auth'])->name('home');
 
 Route::get('/home',[homeController::class, 'index'])->middleware(['auth'])->name('home');
+Route::get('/profile',[userProfileController::class, 'index'])->middleware(['auth'])->name('profile');
+Route::get('/saldo',[saldoController::class, 'index'])->middleware(['auth'])->name('saldo');
+Route::post('/saldo/insert',[saldoController::class, 'insertSaldo'])->middleware(['auth'])->name('saldo');
 
 require __DIR__.'/auth.php';

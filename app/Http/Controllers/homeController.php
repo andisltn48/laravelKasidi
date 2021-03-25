@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\detailUser;
+use App\Models\userAcc;
 
 class homeController extends Controller
 {
     public function __construct(){
-        $this->detailUser = new detailUser();
+        $this->userAcc = new userAcc();
     }
 
     public function index(){
-        $data = [
-            'user' => $this->detailUser->allData(),
-        ];
-        return view('vHome', $data);
-        return view('layouts/vNav', $data);
+        $user = $this->userAcc->profileData();
+
+        foreach ($user as $key) {
+            $data = $key->tasks;    # code...
+            $collection = collect(json_decode($data, true));
+            $tasks = $collection;
+        }
+
+        
+  
+        // print_r($tasks);
+
+        return view('vUserHome', ['user' => $user, 'tasks' => $tasks] );
+        return view('layouts/vNav', $user);
         
     }
 }
