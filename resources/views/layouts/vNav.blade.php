@@ -72,9 +72,9 @@
                 <a href="/profile" class="d-block">{{$dt->nama}}</a>
             </div>
         </div>
-    @endforeach 
+    @endforeach
       <!-- Sidebar user (optional) -->
-    
+
 
       <!-- SidebarSearch Form -->
       {{-- <div class="form-inline">
@@ -160,7 +160,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-{{-- 
+{{--
     <script src="{{asset('template/')}}/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('template/')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -168,6 +168,6 @@
     <script src="{{asset('template/')}}/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('template/')}}/dist/js/demo.js"></script> --}}
-    
+
 </body>
 </html>

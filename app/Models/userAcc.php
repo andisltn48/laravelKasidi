@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class userAcc extends Model
 {
-    
+
     protected $casts = [
         'tasks' => 'array',
     ];
-    
+
     public function profileData(){
         $email = Auth::user()->email;
-        return DB::table('user_acc')->where('email', $email)->get();
+        return DB::table('user_data')->where('email', $email)->get();
     }
 
     // public function tasks(){

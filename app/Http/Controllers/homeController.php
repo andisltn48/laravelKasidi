@@ -20,8 +20,8 @@ class homeController extends Controller
             $tasks = $collection;
         }
 
-        
-  
+
+
         // print_r($tasks);
 
         return view('vUserHome', ['user' => $user, 'tasks' => $tasks] );

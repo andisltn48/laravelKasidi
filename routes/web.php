@@ -24,12 +24,11 @@ Route::get('/', function () {
 //     return view('vHome');
 // })->middleware(['auth'])->name('home');
 
-<<<<<<< Updated upstream
 Route::get('/home',[homeController::class, 'index'])->middleware(['auth'])->name('home');
 Route::get('/profile',[userProfileController::class, 'index'])->middleware(['auth'])->name('profile');
 Route::get('/saldo',[saldoController::class, 'index'])->middleware(['auth'])->name('saldo');
 Route::post('/saldo/insert',[saldoController::class, 'insertSaldo'])->middleware(['auth'])->name('saldo');
-=======
+
 //Umum
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [homeController::class, 'index'])
@@ -46,6 +45,5 @@ Route::middleware(['auth', 'PageAccess:member'])->group(function () {
     //ISI
 });
 
->>>>>>> Stashed changes
 
 require __DIR__ . '/auth.php';
