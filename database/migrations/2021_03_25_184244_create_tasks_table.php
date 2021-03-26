@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('user_data')->ondelete('cascade');  //JOB KIRIM SEMUA
+            $table->foreignId('user_id')->constrained('user_data');  //JOB KIRIM SEMUA
             $table->string('nama_task',30)->nullable();
             $table->string('jenis_task',30)->nullable();
             $table->integer('harga')->nullable();

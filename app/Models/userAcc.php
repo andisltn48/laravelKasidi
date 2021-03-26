@@ -15,8 +15,8 @@ class userAcc extends Model
     ];
 
     public function profileData(){
-        $email = Auth::user()->email;
-        return DB::table('user_data')->where('email', $email)->get();
+        $id = Auth::user()->id;
+        return DB::table('user_data')->where('id', $id)->get();
     }
 
     // public function tasks(){

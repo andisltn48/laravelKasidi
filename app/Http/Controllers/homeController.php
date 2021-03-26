@@ -14,18 +14,22 @@ class homeController extends Controller
     public function index(){
         $user = $this->userAcc->profileData();
 
-        foreach ($user as $key) {
-            $data = $key->tasks;    # code...
-            $collection = collect(json_decode($data, true));
-            $tasks = $collection;
-        }
+        // foreach ($user as $key) {
+        //     $data = $key->tasks;    # code...
+        //     $collection = collect(json_decode($data, true));
+        //     $tasks = $collection;
+        // }
 
 
 
         // print_r($tasks);
 
-        return view('vUserHome', ['user' => $user, 'tasks' => $tasks] );
+        return view('vUserHome', ['user' => $user] );
         return view('layouts/vNav', $user);
-        
+
+        // return view('vUserHome', ['user' => $user, 'tasks' => $tasks] );
+        // return view('layouts/vNav', $user);
+
+
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UserData extends Migration
+class UserDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,7 +24,7 @@ class UserData extends Migration
             $table->string('saldo',30)->nullable();
             $table->string('task',30)->nullable();
             $table->string('foto',30)->nullable();
-            $table->foreignId('user_id')->constrained('users')->ondelete('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

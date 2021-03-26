@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UserSaldo extends Migration
+class CreateUserSaldosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,8 @@ class UserSaldo extends Migration
     {
         Schema::create('user_saldo', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->ondelete('cascade');
-            $table->string('bukti_pembayaran',30);
+            $table->foreignId('user_id')->constrained('user_data');  //JOB KIRIM SEMUA
+            $table->integer('saldo')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class UserSaldo extends Migration
      */
     public function down()
     {
-        Schema::drop('user_saldo');
+        Schema::dropIfExists('user_saldo');
     }
 }

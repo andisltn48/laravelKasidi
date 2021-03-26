@@ -14,11 +14,11 @@ class userProfileController extends Controller
 
     public function index(){
         $data = [
-            'user' => $this->userAcc->profileData(),  
+            'user' => $this->userAcc->profileData(),
         ];
 
         return view('vUserProfile', $data);
         return view('layouts/vNav', $data);
-        
+
     }
 }
