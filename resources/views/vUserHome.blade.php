@@ -47,9 +47,9 @@
                   {{-- @foreach ($tasks as $item)
                     
                   @endforeach --}}
-                  @for ($i=0; $i < count($tasks); $i++)
+                  {{-- @for ($i=0; $i < count($tasks); $i++)
                     <li>{{$tasks[$i]}}</li>
-                  @endfor ()
+                  @endfor () --}}
                 </ul>
               </div>
               <!-- /.card-body -->

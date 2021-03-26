@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userAcc;
+use App\Models\Users;
 
 class homeController extends Controller
 {
@@ -25,7 +26,7 @@ class homeController extends Controller
         // print_r($tasks);
 
         return view('vUserHome', ['user' => $user] );
-        return view('layouts/vNav', $user);
+        return view('layouts/vNav',['user' => $user]);
 
         // return view('vUserHome', ['user' => $user, 'tasks' => $tasks] );
         // return view('layouts/vNav', $user);

@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\userAcc;
 
 class RegisteredUserController extends Controller
 {
@@ -43,6 +44,15 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));
+        
+        $id = Auth::user()->id;
+        $data = [
+            'nama' => $request->name,
+            'email' => $request->email,
+            'user_id' => $id,
+        ];
+        $this->userAcc = new userAcc();
+        $this->userAcc->insertData($data);
 
         event(new Registered($user));
 

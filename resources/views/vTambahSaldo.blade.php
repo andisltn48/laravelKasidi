@@ -19,17 +19,20 @@
               <label for="disabledTextInput">Nama</label>
               <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$data->nama}}">
             </div>
-            <div class="form-group">
-              <label for="disabledTextInput">Email address</label>
-              <input type="text" class="form-control" id="disabledTextInput" name="email" value="{{$data->email}}">
-            </div>
             @endforeach
             <div class="form-group">
                 <div class="form-group">
                     <label>Tanggal Pembayaran:</label>
                       
-                    <input type="date" name="tanggal" class="form-control" name="date">
+                    <input type="date" name="tanggal" class="form-control">
                 </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                  <label>Jumlah Saldo:</label>
+                    
+                  <input type="Text" name="jumlahSaldo" class="form-control">
+              </div>
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Bukti Pembayaran <span class="fw-normal">(Foto harus format jpg atau png)</span></label>

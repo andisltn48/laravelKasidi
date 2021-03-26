@@ -3,7 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userAcc;
-use App\Models\saldo;
+use App\Models\user_saldo;
+use Illuminate\Support\Facades\Auth;
 
 class saldoController extends Controller
 {
@@ -12,11 +13,10 @@ class saldoController extends Controller
     }
 
     public function index(){
-        $data = [
-            'user' => $this->userAcc->profileData(),
-        ];
-        return view('vTambahSaldo', $data);
-        return view('layouts/vNav', $data);
+        $user = $this->userAcc->profileData();
+
+        return view('vTambahSaldo', ['user' => $user]);
+        return view('layouts/vNav', ['user' => $user]);
         
     }
 
@@ -34,13 +34,15 @@ class saldoController extends Controller
         $fileName = Request()->nama . '.' .$file->extension();
         $file->move(public_path('images/buktiPembayaran'), $fileName);
         $rawdate = htmlentities(Request()->tanggal);
+        $id = Auth::user()->id;
 
         $data = [
-            'email' => Request()->email,
-            'waktuPembayaran' => date('Y-m-d', strtotime($rawdate)),
-            'buktiPembayaran' => $fileName,
+            'user_id' => $id,
+            'jumlah_saldo' => Request()->jumlahSaldo,
+            'created_at' => date('Y-m-d', strtotime($rawdate)),
+            'bukti_pembayaran' => $fileName,
         ];
-        $this->saldo = new saldo();
+        $this->saldo = new user_saldo();
         $this->saldo->addsaldo($data);
         return redirect()->route('home')->with('pesan', 'Saldo Berhasil Ditambahkan');
 
