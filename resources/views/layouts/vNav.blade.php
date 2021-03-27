@@ -30,7 +30,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      {{-- @foreach ($user as $data)
+      @foreach ($user as $data)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="{{'../images/'.$data->foto}}" class="img-circle mx-2" width="30px">
@@ -50,7 +50,7 @@
               </li>
             </ul>
           </li>
-      @endforeach --}}
+      @endforeach
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -65,7 +65,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar ">
-    {{-- @foreach ($user as $dt)
+    @foreach ($user as $dt)
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="{{asset('images/'.$dt->foto)}}" class="img-circle elevation-2">
@@ -74,7 +74,7 @@
                 <a href="/profile" class="d-block">{{$dt->nama}}</a>
             </div>
         </div>
-    @endforeach --}}
+    @endforeach
       <!-- Sidebar user (optional) -->
 
 
