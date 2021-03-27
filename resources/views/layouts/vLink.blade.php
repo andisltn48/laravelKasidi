@@ -35,7 +35,7 @@
 
     <title>Kasidi</title>
 
-    @yield('content')
+    @include('layouts/vNav')
 
     <script src="{{asset('template/')}}/plugins/jquery/jquery.min.js"></script>
           <!-- jQuery UI 1.11.4 -->

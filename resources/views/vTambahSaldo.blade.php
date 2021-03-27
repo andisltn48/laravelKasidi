@@ -1,5 +1,4 @@
-@extends('layouts/vNav')
-@include('layouts/vLink')
+@extends('layouts/vLink')
 
 @section('content')
 @csrf
