@@ -26,7 +26,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-              <a href="/saldo">
+              <a href="{{route('saldo.show',$data->user_id)}}">
                 <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Tambah Saldo</button>
               </a>
             </div>

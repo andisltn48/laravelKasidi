@@ -46,13 +46,13 @@ class RegisteredUserController extends Controller
         ]));
         
         $id = Auth::user()->id;
-        $data = [
+
+        $useracc = userAcc::create([
             'nama' => $request->name,
             'email' => $request->email,
             'user_id' => $id,
-        ];
-        $this->userAcc = new userAcc();
-        $this->userAcc->insertData($data);
+            'id' => $id,
+        ]);
 
         event(new Registered($user));
 

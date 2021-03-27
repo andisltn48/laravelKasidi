@@ -4,21 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userAcc;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 
 
 class userProfileController extends Controller
 {
-    public function __construct(){
-        $this->userAcc = new userAcc();
-    }
+    public function index()
+    {
+        // $id = Auth
+        $produk = userAcc::where('user_id','=',$id)
 
-    public function index(){
-        $data = [
-            'user' => $this->userAcc->profileData(),
-        ];
 
-        return view('vUserProfile', $data);
-        return view('layouts/vNav', $data);
+        ->orderBy('id','asc')->paginate(5);
+        // dd($produk,$id);
+        return view('penjual.produk',compact('produk'))
+                ->with('i',(request()->input('page',1) -1)*5);
+
 
     }
 }
