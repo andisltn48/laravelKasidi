@@ -17,11 +17,10 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('user_data');  //JOB KIRIM SEMUA
             $table->string('nama_task',30)->nullable();
-            $table->string('jenis_task',30)->nullable();
             $table->integer('harga')->nullable();
             $table->string('keterangan_task',255)->nullable();
             $table->date('batas_pembayaran')->nullable();
-            $table->date('tanggal_pembayaran')->nullable();
+            $table->enum('status', ['LUNAS', 'BELUM LUNAS'])->nullable();
             $table->timestamps();
         });
     }

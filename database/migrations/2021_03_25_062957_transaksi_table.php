@@ -17,6 +17,7 @@ class transaksiTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->integer('jumlah_saldo')->nullable();
+            $table->enum('jenis_pembayaran', ['Top-up', 'Pembayaran'])->nullable();
             $table->enum('status', ['Konfirmasi', 'Belum Terkonfirmasi'])->nullable();
             $table->string('bukti_pembayaran',30);
             $table->timestamps();
