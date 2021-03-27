@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\userProfileController;
@@ -15,6 +15,11 @@ use App\Http\Controllers\saldoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth', 'PageAccess:seller'])->group(function () {
+    Route::resource('seller.produk', ProdukController::class)
+    ->shallow();
+});
+
 
 Route::get('/', function () {
     return view('vIndex');
