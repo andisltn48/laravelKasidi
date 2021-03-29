@@ -17,12 +17,10 @@ class UserDataTable extends Migration
             $table->id();
             $table->string('nama',30)->nullable();
             $table->integer('nim')->nullable();
-            $table->string('email')->unique();
             $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
             $table->string('prodi',30)->nullable();
             $table->string('jurusan',30)->nullable();
             $table->string('saldo',30)->nullable();
-            $table->string('task',30)->nullable();
             $table->string('foto',30)->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

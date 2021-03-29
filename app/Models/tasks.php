@@ -5,19 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class userAcc extends Model
+class tasks extends Model
 {
     use HasFactory;
-    public $table = 'user_data';
+    public $table = 'tasks';
     protected $fillable = [
         'id',
-        'nama',
-        'nim',
-        'jenis_kelamin',
-        'prodi',
-        'jurusan',
-        'saldo',
-        'foto',
         'user_id',
+        'nama_task',
+        'harga',
+        'keterangan_task',
+        'batas_pembayaran',
+        'status',
     ];
 }

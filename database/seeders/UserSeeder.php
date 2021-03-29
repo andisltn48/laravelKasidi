@@ -15,14 +15,14 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::insert([
-            'id' => '1',
+            'id' => 1,
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => hash::make('admin'),
             'role' => 'admin',
         ]);
         User::insert([
-                        'id' => '2',
+                        'id' => 2,
                         'name' => 'member',
                         'email' => 'member@gmail.com',
                         'password' => hash::make('member'),
