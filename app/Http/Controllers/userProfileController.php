@@ -17,14 +17,12 @@ class userProfileController extends Controller
         $user = userAcc::where('user_id','=',$id)->get();
 
         return view('vUserProfile', ['user' => $user] );
-        return view('layouts/vLink',['user' => $user]);
     }
 
     public function create($id){
         $user = userAcc::where('user_id','=',$id)->get();
         // echo $user;
         return view('vEditProfile', ['user' => $user] );
-        return view('layouts/vLink',['user' => $user]);
     }
 
     public function store($id){

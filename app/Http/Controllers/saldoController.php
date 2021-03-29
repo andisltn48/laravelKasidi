@@ -11,12 +11,12 @@ class saldoController extends Controller
 {
 
     public function create($id){
-        
+
         $user = userAcc::where('user_id','=',$id)->get();
         // echo $user;
         return view('vTambahSaldo', ['user' => $user] );
-        return view('layouts/vLink',['user' => $user]);
-        
+     
+
     }
 
     public function store($id){
@@ -26,7 +26,7 @@ class saldoController extends Controller
             'foto_pembayaran.required' => 'foto pembayaran harus di isi!',
             'foto_pembayaran.mimes' => 'foto pembayaran harus format jpg atau png!',
             'foto_pembayaran.max' => 'ukuran tidak boleh lebih dari 5mb!',
-            
+
         ]);
 
         $file = Request()->foto_pembayaran;
