@@ -34,7 +34,6 @@ class userProfileController extends Controller
         $userAcc = userAcc::where('user_id','=',$id)->update([
             'nama' => Request()->nama,
             'nim' => Request()->nim,
-            'email' => Request()->email,
             'jenis_kelamin' => Request()->jenisKelamin,
             'prodi' => Request()->prodi,
             'jurusan' => Request()->jurusan,
