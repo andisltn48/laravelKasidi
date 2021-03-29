@@ -26,9 +26,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('saldo', saldoController::class);
+    Route::resource('saldo.tambahSaldo', saldoController::class)->shallow();
+});
 
-    // Route::post('/saldo', [homeController::class, 'store']);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('profile', userProfileController::class);
+    Route::resource('profile.editProfile', userProfileController::class)->shallow();
 });
 
 

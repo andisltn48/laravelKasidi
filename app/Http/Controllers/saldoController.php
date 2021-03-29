@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class saldoController extends Controller
 {
 
-    public function show($id){
+    public function create($id){
         
         $user = userAcc::where('user_id','=',$id)->get();
         // echo $user;
@@ -19,7 +19,7 @@ class saldoController extends Controller
         
     }
 
-    public function store(){
+    public function store($id){
         Request()->validate([
             'foto_pembayaran' => 'required|mimes:jpg,png',
         ],[
@@ -32,7 +32,6 @@ class saldoController extends Controller
         $file = Request()->foto_pembayaran;
         $fileName = Request()->nama . '.' .$file->extension();
         $file->move(public_path('images/buktiPembayaran'), $fileName);
-        $rawdate = htmlentities(Request()->tanggal);
         // $id = Auth::user()->id;
 
         // $data = [
@@ -44,7 +43,7 @@ class saldoController extends Controller
         // $this->saldo = new user_saldo();
         // $this->saldo->addsaldo($data);
         $transaksi = transaksi::create([
-            'user_id' => Request()->id,
+            'user_id' => $id,
             'jumlah_saldo' => Request()->jumlahSaldo,
             'jenis_pembayaran' => Request()->jenisPembayaran,
             'status' => 'Belum Terkonfirmasi',

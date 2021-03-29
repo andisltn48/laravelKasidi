@@ -12,15 +12,35 @@ class userProfileController extends Controller
 {
     public function index()
     {
-        // $id = Auth
-        $produk = userAcc::where('user_id','=',$id)
+        $id = Auth::user()->id;
 
+        $user = userAcc::where('user_id','=',$id)->get();
 
-        ->orderBy('id','asc')->paginate(5);
-        // dd($produk,$id);
-        return view('penjual.produk',compact('produk'))
-                ->with('i',(request()->input('page',1) -1)*5);
+        return view('vUserProfile', ['user' => $user] );
+        return view('layouts/vLink',['user' => $user]);
+    }
 
+    public function create($id){
+        $user = userAcc::where('user_id','=',$id)->get();
+        // echo $user;
+        return view('vEditProfile', ['user' => $user] );
+        return view('layouts/vLink',['user' => $user]);
+    }
 
+    public function store($id){
+        $file = Request()->foto;
+        $fileName = Request()->nama . '.' .$file->extension();
+        $file->move(public_path('images/fotoProfile'), $fileName);
+        $userAcc = userAcc::where('user_id','=',$id)->update([
+            'nama' => Request()->nama,
+            'nim' => Request()->nim,
+            'email' => Request()->email,
+            'jenis_kelamin' => Request()->jenisKelamin,
+            'prodi' => Request()->prodi,
+            'jurusan' => Request()->jurusan,
+            'foto' => $fileName,
+        ]);
+
+        return redirect()->route('profile.index')->with('pesan', 'Profil Berhasil Disimpan!');
     }
 }

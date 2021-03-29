@@ -33,11 +33,11 @@
       @foreach ($user as $data)
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{'../images/'.$data->foto}}" class="img-circle mx-2" width="30px">
+              <img src="{{asset('images/fotoProfile/'.$data->foto)}}" class="img-circle mx-2" width="30px">
               <span class="fw-normal text-dark fs-5">{{$data->nama}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/profile">Profil</a></li>
+              <li><a class="dropdown-item" href="{{route('profile.index')}}">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <div class="mt-3 space-y-1">
@@ -68,7 +68,7 @@
     @foreach ($user as $dt)
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{asset('images/'.$dt->foto)}}" class="img-circle elevation-2">
+                <img src="{{asset('images/fotoProfile/'.$dt->foto)}}" class="img-circle elevation-2">
             </div>
             <div class="info">
                 <a href="/profile" class="d-block">{{$dt->nama}}</a>

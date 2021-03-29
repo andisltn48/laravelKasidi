@@ -11,8 +11,7 @@
         <!-- form start -->
 
         @foreach ($user as $data)
-        <h1>{{$data->user_id}}</h1>
-        <form method="POST" action="{{route('saldo.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('saldo.tambahSaldo.store',$data->user_id)}}" enctype="multipart/form-data">
           @csrf
           {{-- @method(POST) --}}
           <div class="card-body">
@@ -20,9 +19,6 @@
               <div class="form-group">
                 <label for="disabledTextInput">Nama</label>
                 <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$data->nama}}" readonly/>
-              </div>
-              <div class="form-group">
-                <input type="hidden" class="form-control" id="disabledTextInput" name="id" value="{{$data->user_id}}">
               </div>
             </fieldset>
             <div class="form-group">

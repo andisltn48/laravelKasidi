@@ -6,7 +6,7 @@
             @foreach ($user as $data)
                 <div class="row">
                     <div class="col-auto m-5">
-                        <img class="rounded" src="{{asset('images/'.$data->foto)}}" alt="">
+                        <img class="rounded" src="{{url('images/fotoProfile/'.$data->foto)}}" alt="">
                     </div>
                     <div class="col mt-5 ms-2">
                         <div class="nama">
@@ -21,12 +21,21 @@
                             <label class="fw-bold" for="">Email</label>
                             <p>{{$data->email}}</p>
                         </div>
+
+                        <div class="jenisKelamin">
+                            <label class="fw-bold" for="">Jenis Kelamin</label>
+                            <p>{{$data->jenis_kelamin}}</p>
+                        </div>
                         <div class="prodi">
                             <label class="fw-bold" for="">Prodi</label>
                             <p>{{$data->prodi}}</p>
                         </div>
+                        <div class="jurusan">
+                            <label class="fw-bold" for="">Jurusan</label>
+                            <p>{{$data->jurusan}}</p>
+                        </div>
                         <div class="text-center" >
-                            <a href="/editProfiles">
+                            <a href="{{route('profile.editProfile.create',$data->user_id)}}">
                                 <button type="submit" class="btn btn-warning  align-item-bottom">Edit Data</button>
                             </a>
                         </div>
