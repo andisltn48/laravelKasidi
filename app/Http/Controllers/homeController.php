@@ -12,10 +12,10 @@ class homeController extends Controller
     public function index(){
         $id = Auth::user()->id;
 
-        $user = userAcc::where('user_id','=',$id)->get();
+        $user = userAcc::where('user_id','=',$id)->first();
 
-        return view('vUserHome', ['user' => $user] );
-        return view('layouts/vLink',['user' => $user]);
+        return view('vUserHome', compact('user'));
+
 
     }
 }

@@ -11,45 +11,45 @@
                     {{ session('pesan') }}.
                 </div>
             @endif
-            @foreach ($user as $data)
+
                 <div class="row">
                     <div class="col-auto m-5">
-                        <img class="rounded" src="{{ url('images/fotoProfile/' . $data->foto) }}" alt="">
+                        <img class="rounded" src="{{ url('images/fotoProfile/' . $user->foto) }}" alt="">
                     </div>
                     <div class="col mt-5 ms-2">
                         <div class="nama">
                             <label class="fw-bold" for="">Nama</label>
-                            <p>{{ $data->nama }}</p>
+                            <p>{{ $user->nama }}</p>
                         </div>
                         <div class="nim">
                             <label class="fw-bold" for="">NIM</label>
-                            <p>{{ $data->nim }}</p>
+                            <p>{{ $user->nim }}</p>
                         </div>
                         <div class="email">
                             <label class="fw-bold" for="">Email</label>
-                            <p>{{ $data->email }}</p>
+                            <p>{{ $user->email }}</p>
                         </div>
 
                         <div class="jenisKelamin">
                             <label class="fw-bold" for="">Jenis Kelamin</label>
-                            <p>{{ $data->jenis_kelamin }}</p>
+                            <p>{{ $user->jenis_kelamin }}</p>
                         </div>
                         <div class="prodi">
                             <label class="fw-bold" for="">Prodi</label>
-                            <p>{{ $data->prodi }}</p>
+                            <p>{{ $user->prodi }}</p>
                         </div>
                         <div class="jurusan">
                             <label class="fw-bold" for="">Jurusan</label>
-                            <p>{{ $data->jurusan }}</p>
+                            <p>{{ $user->jurusan }}</p>
                         </div>
                         <div class="text-center">
-                            <a href="{{ route('profile.editProfile.create', $data->user_id) }}">
+                            <a href="{{ route('profile.editProfile.create', $user->user_id) }}">
                                 <button type="submit" class="btn btn-warning  align-item-bottom">Edit Data</button>
                             </a>
                         </div>
                     </div>
                 </div>
-            @endforeach
+
         </div>
     </div>
 @endsection

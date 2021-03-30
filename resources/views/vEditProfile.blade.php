@@ -9,8 +9,8 @@
             <!-- /.card-header -->
             <!-- form start -->
 
-            @foreach ($user as $data)
-                <form method="POST" action="{{ route('profile.editProfile.store', $data->user_id) }}"
+
+                <form method="POST" action="{{ route('profile.editProfile.store', $user->user_id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -19,21 +19,21 @@
                                 <div class="form-group">
                                     <label for="disabledTextInput">Nama</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="nama"
-                                        value="{{ $data->nama }}">
+                                        value="{{ $user->nama }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledTextInput">Email</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="email"
-                                        value="{{ $data->email }}" readonly />
+                                        value="{{ $user->email }}" readonly />
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledTextInput">Nim</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="nim"
-                                        value="{{ $data->nim }}">
+                                        value="{{ $user->nim }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <select name="jenisKelamin" class="form-control" value="{{ $data->jenis_kelamin }}">
+                                    <select name="jenisKelamin" class="form-control" value="{{ $user->jenis_kelamin }}">
                                         <option value="laki-laki">Laki-Laki</option>
                                         <option value="perempuan">Perempuan</option>
                                     </select>
@@ -45,12 +45,12 @@
                                 <div class="form-group">
                                     <label for="disabledTextInput">Prodi</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="prodi"
-                                        value="{{ $data->prodi }}">
+                                        value="{{ $user->prodi }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledTextInput">Jurusan</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="jurusan"
-                                        value="{{ $data->jurusan }}">
+                                        value="{{ $user->jurusan }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Foto Profil<span class="fw-normal">(Foto harus
@@ -72,7 +72,7 @@
                         </div>
                     </div>
 
-            @endforeach
+
             <!-- /.card-body -->
 
             <div class="card-footer ml-auto">

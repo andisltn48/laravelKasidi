@@ -10,8 +10,8 @@
           {{ session('pesan') }}.
         </div>
     @endif
-    @foreach ($user as $data)
-        <h1 class="text-success fw-bolder fs-2 pt-3">Halo<span class="text-dark">, {{$data->nama}}</span></h1>
+
+        <h1 class="text-success fw-bolder fs-2 pt-3">Halo<span class="text-dark">, {{$user->nama}}</span></h1>
         <hr>
         <div class="card saldoCard mt-4">
             <div class="card-header bg-success">
@@ -22,11 +22,11 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <h2>Rp {{$data->saldo}}</h2>
+              <h2>Rp {{$user->saldo}}</h2>
             </div>
             <!-- /.card-body -->
             <div class="card-footer clearfix">
-              <a href="{{route('saldo.tambahSaldo.create',$data->user_id)}}">
+              <a href="{{route('saldo.tambahSaldo.create',$user->user_id)}}">
                 <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Tambah Saldo</button>
               </a>
             </div>
@@ -45,7 +45,7 @@
               <div class="card-body">
                 <ul class="todo-list" data-widget="todo-list">
                   {{-- @foreach ($tasks as $item)
-                    
+
                   @endforeach --}}
                   {{-- @for ($i=0; $i < count($tasks); $i++)
                     <li>{{$tasks[$i]}}</li>
@@ -56,12 +56,12 @@
             </div>
           </div>
           <div class="col-lg-5">
-               
+
           </div>
         </div>
 
-    
-        
-    @endforeach 
+
+
+
 </div>
 @endsection

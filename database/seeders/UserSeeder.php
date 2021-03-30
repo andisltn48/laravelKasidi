@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'member',
             'email' => 'member@gmail.com',
             'password' => hash::make('member'),
+            'foto' => 'foto1.jpg',
             'role' => 'member',
         ]);
         User::insert([
@@ -28,6 +29,7 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => hash::make('admin'),
+            'foto' => 'foto2.jpg',
             'role' => 'admin',
         ]);
     }

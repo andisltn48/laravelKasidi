@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userAcc;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,13 +15,13 @@ class userProfileController extends Controller
     {
         $id = Auth::user()->id;
 
-        $user = userAcc::where('user_id','=',$id)->get();
+        $user = userAcc::where('user_id','=',$id)->first();
 
-        return view('vUserProfile', ['user' => $user] );
+        return view('vUserProfile', compact('user') );
     }
 
     public function create($id){
-        $user = userAcc::where('user_id','=',$id)->get();
+        $user = userAcc::where('user_id','=',$id)->first();
         // echo $user;
         return view('vEditProfile', ['user' => $user] );
     }
@@ -35,6 +36,9 @@ class userProfileController extends Controller
             'jenis_kelamin' => Request()->jenisKelamin,
             'prodi' => Request()->prodi,
             'jurusan' => Request()->jurusan,
+
+        ]);
+        $user = User::where('id','=',$id)->update([
             'foto' => $fileName,
         ]);
 

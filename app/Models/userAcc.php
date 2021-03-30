@@ -17,7 +17,6 @@ class userAcc extends Model
         'prodi',
         'jurusan',
         'saldo',
-        'foto',
         'user_id',
     ];
 }

@@ -21,7 +21,7 @@ class User_dataSeeder extends Seeder
             'prodi' => 'INFORMATIKA',
             'jurusan' => 'JMTI',
             'saldo' => 5000,
-            'foto' => 'foto1.jpg',
+       
             'user_id' => 1,
         ]);
     }

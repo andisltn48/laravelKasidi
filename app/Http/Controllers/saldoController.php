@@ -15,7 +15,7 @@ class saldoController extends Controller
         $user = userAcc::where('user_id','=',$id)->get();
         // echo $user;
         return view('vTambahSaldo', ['user' => $user] );
-     
+
 
     }
 

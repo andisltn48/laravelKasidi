@@ -21,7 +21,6 @@ class UserDataTable extends Migration
             $table->string('prodi',30)->nullable();
             $table->string('jurusan',30)->nullable();
             $table->string('saldo',30)->nullable();
-            $table->string('foto',30)->nullable();
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

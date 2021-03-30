@@ -20,19 +20,14 @@ Route::middleware(['auth', 'PageAccess:seller'])->group(function () {
     ->shallow();
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/home', [homeController::class, 'index'])
-        ->name('home');
-});
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('saldo.tambahSaldo', saldoController::class)->shallow();
-});
-
-Route::middleware(['auth'])->group(function () {
+    Route::resource('home', homeController::class);
     Route::resource('profile', userProfileController::class);
     Route::resource('profile.editProfile', userProfileController::class)->shallow();
 });
+
 
 
 Route::get('/', function () {
