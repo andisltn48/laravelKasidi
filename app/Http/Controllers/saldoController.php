@@ -12,9 +12,9 @@ class saldoController extends Controller
 
     public function create($id){
 
-        $user = userAcc::where('user_id','=',$id)->get();
+        $user = userAcc::where('user_id','=',$id)->first();
         // echo $user;
-        return view('vTambahSaldo', ['user' => $user] );
+        return view('vTambahSaldo', compact('user'));
 
 
     }

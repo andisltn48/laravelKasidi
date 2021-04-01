@@ -9,16 +9,14 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-
-        @foreach ($user as $data)
-        <form method="POST" action="{{route('saldo.tambahSaldo.store',$data->user_id)}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('saldo.tambahSaldo.store',$user->user_id)}}" enctype="multipart/form-data">
           @csrf
           {{-- @method(POST) --}}
           <div class="card-body">
             <fieldset>
               <div class="form-group">
                 <label for="disabledTextInput">Nama</label>
-                <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$data->nama}}" readonly/>
+                <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$user->nama}}" readonly/>
               </div>
             </fieldset>
             <div class="form-group">
@@ -54,7 +52,6 @@
               </div>
             </div>
           </div>
-        @endforeach
           <!-- /.card-body -->
     
           <div class="card-footer ml-auto">
