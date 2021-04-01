@@ -1,4 +1,4 @@
-@extends('layouts/vLink')
+@extends('layouts/vNav')
 
 @section('content')
     <div class="">
@@ -14,7 +14,7 @@
 
                 <div class="row">
                     <div class="col-auto m-5">
-                        <img class="rounded" src="{{ url('images/fotoProfile/' . $user->foto) }}" alt="">
+                        <img class="rounded" src="{{ url('images/fotoProfile/' . $User->foto) }}" alt="">
                     </div>
                     <div class="col mt-5 ms-2">
                         <div class="nama">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="email">
                             <label class="fw-bold" for="">Email</label>
-                            <p>{{ $user->email }}</p>
+                            <p>{{ $User->email }}</p>
                         </div>
 
                         <div class="jenisKelamin">

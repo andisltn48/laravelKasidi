@@ -1,4 +1,4 @@
-@extends('layouts/vLink')
+@extends('layouts/vNav')
 {{-- @extends('layouts/vLink') --}}
 
 @section('content')
@@ -53,23 +53,25 @@
     <!-- /.card-header -->
     <div class="card-body">
       <ul class="todo-list ui-sortable" data-widget="todo-list">
-        @foreach ($task as $item)
-        <li @if($item->status=='LUNAS') class="done" @endif>
-          <span class="handle ui-sortable-handle">
-            <i class="fas fa-ellipsis-v"></i>
-            <i class="fas fa-ellipsis-v"></i>
-          </span>
-          <div class="icheck-primary d-inline ml-2">
-            <input type="checkbox" value="" name="todo2" id="todoCheck2" @if($item->status=='LUNAS') checked="" @endif disabled>
-            <label for="todoCheck2"></label>
-          </div>
-          <span class="text">{{$item->nama_task}}</span>
-          <small class="badge badge-info"><i class="far fa-clock"></i> {{$item->batas_pembayaran}}</small>
-          <div class="tools">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash-o"></i>
-          </div>
-        </li>
+          @foreach ($task as $item)
+          <li @if($item->status=='LUNAS') class="done" @endif>
+            <a href="{{route('task.pembayaran.create',$user->user_id)}}">
+              <span class="handle ui-sortable-handle text-dark">
+                <i class="fas fa-ellipsis-v"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </span>
+              <div class="icheck-primary d-inline ml-2 text-dark">
+                <input type="checkbox" value="" name="todo2" id="todoCheck2" @if($item->status=='LUNAS') checked="" @endif disabled>
+                <label for="todoCheck2"></label>
+              </div>
+              <span class="text text-dark">{{$item->nama_task}}</span>
+              <small class="badge badge-info"><i class="far fa-clock"></i> {{$item->batas_pembayaran}}</small>
+              <div class="tools ">
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash-o"></i>
+              </div>
+            </a>
+          </li>
         @endforeach
       </ul>
     </div>

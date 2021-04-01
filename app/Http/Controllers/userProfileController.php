@@ -16,14 +16,16 @@ class userProfileController extends Controller
         $id = Auth::user()->id;
 
         $user = userAcc::where('user_id','=',$id)->first();
+        $User = User::where('id','=',$id)->first();
 
-        return view('vUserProfile', compact('user') );
+        return view('vUserProfile', compact('user','User') );
     }
 
     public function create($id){
         $user = userAcc::where('user_id','=',$id)->first();
+        $User = User::where('id','=',$id)->first();
         // echo $user;
-        return view('vEditProfile', ['user' => $user] );
+        return view('vEditProfile', compact('user','User') );
     }
 
     public function store($id){

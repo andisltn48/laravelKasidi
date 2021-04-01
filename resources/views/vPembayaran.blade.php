@@ -1,35 +1,42 @@
-@extends('layouts/vLink')
+@extends('layouts/vNav')
 
 @section('content')
-@csrf
 
 <div class="container-fluid mt-5 pt-4 position-relative">
     <div class="card card-success">
         <div class="card-header">
-          <h3 class="card-title fs-4">Isi Saldo</h3>
+          <h3 class="card-title fs-4">Pembayaran</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form method="POST" action="/saldo/insert" enctype="multipart/form-data">
+        <form method="POST" action="{{route('task.pembayaran.store',$user->user_id)}}" enctype="multipart/form-data">
+          @csrf
+          {{-- @method(POST) --}}
           <div class="card-body">
-           
-            @foreach ($user as $data)
+            <fieldset>
+              <div class="form-group">
+                <label for="disabledTextInput">Nama</label>
+                <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$user->nama}}" readonly/>
+              </div>
+            </fieldset>
             <div class="form-group">
-              <label for="disabledTextInput">Nama</label>
-              <input type="text" class="form-control" id="disabledTextInput" name="nama" value="{{$data->nama}}">
+              <div class="form-group">
+                  <label>Jumlah Pembayaran</label>
+                    
+                  <input type="Text" name="jumlahSaldo" class="form-control">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="disabledTextInput">Email address</label>
-              <input type="text" class="form-control" id="disabledTextInput" name="email" value="{{$data->email}}">
-            </div>
-            @endforeach
-            <div class="form-group">
+            <fieldset">
+              <div class="form-group">
                 <div class="form-group">
-                    <label>Tanggal Pembayaran:</label>
-                      
-                    <input type="date" name="tanggal" class="form-control" name="date">
+                  <label>Jenis Pembayaran</label>
+                  <select name="jenisPembayaran" class="form-control" readonly/>
+                    {{-- <option value="Top-up">Top-up</option> --}}
+                    <option value="Pembayaran">Pembayaran</option>
+                  </select>         
                 </div>
-            </div>
+              </div>
+            </fieldset>
             <div class="form-group">
               <label for="exampleInputFile">Bukti Pembayaran <span class="fw-normal">(Foto harus format jpg atau png)</span></label>
               <div class="input-group">

@@ -1,3 +1,5 @@
+@include('layouts/vLink')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +27,13 @@
     </ul>
 
     <!-- SEARCH FORM -->
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      
+@if (Route::has('login'))
+    @auth
+        <ul class="navbar-nav ml-auto">
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{'../images/'.$user->foto}}" class="img-circle mx-2" width="30px">
+              <img src="{{'../images/fotoProfile/'.$User->foto}}" class="img-circle mx-2" width="30px">
               <span class="fw-normal text-dark fs-5">{{$user->nama}}</span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,11 +51,11 @@
             </ul>
           </li>
     </ul>
-  </nav>
-  <!-- /.navbar -->
+    </nav>
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
     <!-- Brand Logo -->
     <a href="/home" class="brand-link">
       <img src="{{asset('template/')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -64,7 +66,8 @@
     <div class="sidebar ">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{asset('images/'.$user->foto)}}" class="img-circle elevation-2">
+              <h1></h1>
+                <img src="{{asset('images/fotoProfile/'.$User->foto)}}" class="img-circle elevation-2">
             </div>
             <div class="info">
                 <a href="/profile" class="d-block">{{$user->nama}}</a>
@@ -89,7 +92,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
             <li class="nav-item mt-5">
                 <a href="/home" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -127,37 +130,41 @@
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+    </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
-
+      
       <!-- Default box -->
       @yield('content')
       <!-- /.card -->
 
     </section>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
 
-  <footer class="main-footer fixed-bottom">
+    <footer class="main-footer fixed-bottom">
     {{-- <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.1.0-rc
     </div>
     <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved. --}}
-  </footer>
+    </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-{{--
+    </aside>
+    <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+    @endauth
+@endif
+    <!-- Right navbar links -->
+    {{--
     <script src="{{asset('template/')}}/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('template/')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

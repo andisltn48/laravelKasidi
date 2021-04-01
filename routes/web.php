@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\userProfileController;
 use App\Http\Controllers\saldoController;
+use App\Http\Controllers\tasksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,10 @@ Route::middleware(['auth', 'PageAccess:seller'])->group(function () {
 });
 
 
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('saldo.tambahSaldo', saldoController::class)->shallow();
-    Route::resource('home', homeController::class);
+    Route::resource('task.pembayaran', tasksController::class)->shallow();
     Route::resource('profile', userProfileController::class);
     Route::resource('profile.editProfile', userProfileController::class)->shallow();
 });
@@ -34,9 +36,7 @@ Route::get('/', function () {
     return view('vIndex');
 });
 
-// // Route::get('/home', function () {
-// //     return view('vHome');
-// // })->middleware(['auth'])->name('home');
+Route::get('/home', [homeController::class, 'index'])->middleware(['auth'])->name('home');
 
 // Route::get('/home',[homeController::class, 'index'])->middleware(['auth'])->name('home');
 // Route::get('/profile',[userProfileController::class, 'index'])->middleware(['auth'])->name('profile');

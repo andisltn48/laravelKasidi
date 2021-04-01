@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\userAcc;
+use App\Models\User;
 use App\Models\user_saldo;
 use App\Models\transaksi;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,9 @@ class saldoController extends Controller
     public function create($id){
 
         $user = userAcc::where('user_id','=',$id)->first();
+        $User = User::where('id','=',$id)->first();
         // echo $user;
-        return view('vTambahSaldo', compact('user'));
+        return view('vTambahSaldo', compact('user','User'));
 
 
     }

@@ -1,4 +1,4 @@
-@extends('layouts/vLink')
+@extends('layouts/vNav')
 
 @section('content')
     <div class="container-fluid mt-5 pt-4 position-relative">
@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                     <label for="disabledTextInput">Email</label>
                                     <input type="text" class="form-control" id="disabledTextInput" name="email"
-                                        value="{{ $user->email }}" readonly />
+                                        value="{{ $User->email }}" readonly />
                                 </div>
                                 <div class="form-group">
                                     <label for="disabledTextInput">Nim</label>

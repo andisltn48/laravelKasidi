@@ -1,4 +1,4 @@
-@extends('layouts/vLink')
+@extends('layouts/vNav')
 
 @section('content')
 
@@ -32,7 +32,7 @@
                   <label>Jenis Pembayaran</label>
                   <select name="jenisPembayaran" class="form-control" readonly/>
                     <option value="Top-up">Top-up</option>
-                    <option value="Pembayaran">Pembayaran</option>
+                    {{-- <option value="Pembayaran">Pembayaran</option> --}}
                   </select>         
                 </div>
               </div>
