@@ -4,6 +4,7 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\userProfileController;
 use App\Http\Controllers\saldoController;
 use App\Http\Controllers\tasksController;
+use App\Http\Controllers\transaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,10 @@ use App\Http\Controllers\tasksController;
 |
 */
 
-Route::middleware(['auth', 'PageAccess:seller'])->group(function () {
-    Route::resource('seller.produk', ProdukController::class)
-    ->shallow();
-});
+// Route::middleware(['auth', 'PageAccess:seller'])->group(function () {
+//     Route::resource('seller.produk', ProdukController::class)
+//     ->shallow();
+// });
 
 
 
@@ -28,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('task.pembayaran', tasksController::class)->shallow();
     Route::resource('profile', userProfileController::class);
     Route::resource('profile.editProfile', userProfileController::class)->shallow();
+    Route::resource('transaksi', transaksiController::class);
 });
 
 

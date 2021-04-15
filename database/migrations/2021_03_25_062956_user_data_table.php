@@ -22,6 +22,7 @@ class UserDataTable extends Migration
             $table->string('jurusan',30)->nullable();
             $table->string('saldo',30)->nullable();
             $table->foreignId('user_id')->constrained('users');
+            $table->enum('role', ['member', 'admin']);
             $table->timestamps();
         });
     }

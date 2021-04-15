@@ -5,7 +5,7 @@
 <div class="container-fluid mt-5 pt-4 position-relative">
     <div class="card card-success">
         <div class="card-header">
-          <h3 class="card-title fs-4">Isi Saldo</h3>
+          <h3 class="card-title fs-4">Tambah Saldo</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
@@ -54,7 +54,7 @@
           </div>
           <!-- /.card-body -->
     
-          <div class="card-footer ml-auto">
+          <div class="ml-auto">
             <button type="submit" class="btn btn-primary float-right">Submit</button>
           </div>
         </form>

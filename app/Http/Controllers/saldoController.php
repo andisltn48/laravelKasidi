@@ -46,6 +46,7 @@ class saldoController extends Controller
         // $this->saldo->addsaldo($data);
         $transaksi = transaksi::create([
             'user_id' => $id,
+            'nama' => Request()->nama,
             'jumlah_saldo' => Request()->jumlahSaldo,
             'jenis_pembayaran' => Request()->jenisPembayaran,
             'status' => 'Belum Terkonfirmasi',

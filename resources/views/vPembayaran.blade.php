@@ -54,7 +54,7 @@
           </div>
           <!-- /.card-body -->
     
-          <div class="card-footer ml-auto">
+          <div class="ml-auto">
             <button type="submit" class="btn btn-primary float-right">Submit</button>
           </div>
         </form>

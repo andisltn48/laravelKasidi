@@ -1,7 +1,7 @@
 @extends('layouts/vNav')
 
 @section('content')
-    <div class="container-fluid mt-5 pt-4 position-relative">
+    <div class="container-fluid mt-5 pt-4 position-relative text-dark">
         <div class="card card-success">
             <div class="card-header">
                 <h3 class="card-title fs-4">Edit Profil</h3>
@@ -75,7 +75,7 @@
 
             <!-- /.card-body -->
 
-            <div class="card-footer ml-auto">
+            <div class=" ml-auto">
                 <button type="submit" class="btn btn-primary float-right">Submit</button>
             </div>
             </form>

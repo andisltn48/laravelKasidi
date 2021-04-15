@@ -1,177 +1,169 @@
 @include('layouts/vLink')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kasidi</title>
+<body id="page-top">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{asset('template/')}}/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('template/')}}/dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-success navbar-light fixed-top">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-    </ul>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-    <!-- SEARCH FORM -->
-@if (Route::has('login'))
-    @auth
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="{{'../images/fotoProfile/'.$User->foto}}" class="img-circle mx-2" width="30px">
-              <span class="fw-normal text-dark fs-5">{{$user->nama}}</span>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/profile">Profil</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li>
-                <div class="mt-3 space-y-1">
-                  <!-- Authentication -->
-                  <form method="POST" action="/logout">
-                      @csrf
-                      <button type="submit" class="dropdown-item">Log out</button>
-                  </form>
-                </div>
-              </li>
-            </ul>
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+          <!-- Sidebar - Brand -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/home">
+              <div class="sidebar-brand-icon rotate-n-15">
+                  <i class="fas fa-calculator"></i>
+              </div>
+              <p class="h3 sidebar-brand-text mx-3">Kasidi</p>
+          </a>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item active">
+              <a class="nav-link" href="/home">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span></a>
           </li>
-    </ul>
-    </nav>
-    <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
-    <!-- Brand Logo -->
-    <a href="/home" class="brand-link">
-      <img src="{{asset('template/')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Kasidi</span>
-    </a>
+          <!-- Divider -->
+          <hr class="sidebar-divider">
 
-    <!-- Sidebar -->
-    <div class="sidebar ">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <h1></h1>
-                <img src="{{asset('images/fotoProfile/'.$User->foto)}}" class="img-circle elevation-2">
-            </div>
-            <div class="info">
-                <a href="/profile" class="d-block">{{$user->nama}}</a>
-            </div>
-        </div>
-      <!-- Sidebar user (optional) -->
-
-
-      <!-- SidebarSearch Form -->
-      {{-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
+          <div class="sidebar-heading">
+              Fitur
           </div>
-        </div>
-      </div> --}}
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-              with font-awesome or any other icon font library -->
-            <li class="nav-item mt-5">
-                <a href="/home" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Dashboard
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-              <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                      Fitur
-                  </p>
-              </a>
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item active">
+              <a class="nav-link" href="/transaksi">
+                  <i class="fas fa-fw fa-money-bill"></i>
+                  <span>Transaksi</span></a>
           </li>
-          <li class="nav-item mt-3">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    Transaksi
-                </p>
-            </a>
+          <li class="nav-item active">
+              <a class="nav-link" href="riwayat.html">
+                  <i class="fas fa-fw fa-history"></i>
+                  <span>Riwayat</span></a>
           </li>
-          <li class="nav-item mt-3">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                    Riwayat
-                </p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-    </aside>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-    <!-- Main content -->
-    <section class="content">
-      
-      <!-- Default box -->
-      @yield('content')
-      <!-- /.card -->
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
 
-    </section>
-    <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+          <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+              <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          </div>
+      </ul>
+      <!-- End of Sidebar -->
 
-    <footer class="main-footer fixed-bottom">
-    {{-- <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0-rc
-    </div>
-    <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved. --}}
-    </footer>
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
+          <!-- Main Content -->
+          <div id="content">
 
-    @endauth
-@endif
-    <!-- Right navbar links -->
-    {{--
-    <script src="{{asset('template/')}}/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('template/')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('template/')}}/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{asset('template/')}}/dist/js/demo.js"></script> --}}
+              <!-- Topbar -->
+              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-</body>
-</html>
+                  <!-- Sidebar Toggle (Topbar) -->
+                  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                      <i class="fa fa-bars"></i>
+                  </button>
+
+                  <!-- Topbar Greeting -->
+                  <div class="h3 text-gray-900"><span>Halo, </span> <span class="text-success" id="nama">{{$User->name}}</span></div>
+                  @if (Route::has('login'))
+                  @auth
+                  <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="nama">{{$User->name}}</span>
+                                <img class="img-profile rounded-circle" src="{{'images/fotoProfile/'.$User->foto}}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="/profile">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Activity Log
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                    </a>
+                                </div>
+
+                        </li>
+                    </ul>
+                  @endauth                         
+                  @endif
+              </nav>
+              <!-- End of Topbar -->
+              @yield('content')
+          </div>
+          <!-- End of Main Content -->
+            
+          <!-- Footer -->
+          <footer class="sticky-footer bg-white">
+              <div class="container my-auto">
+                  <div class="copyright text-center my-auto">
+                      <span>Copyright &copy; Kasidi 2021</span>
+                  </div>
+              </div>
+          </footer>
+          <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              {{-- <a class="btn btn-success" href="login.html">Logout</a> --}}
+              <form method="POST" action="/logout">
+                @csrf
+                <button type="submit" class="btn btn-success">Logout</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{asset('js/')}}/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="{{asset('vendor/chart.js/Chart.min.js')}}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
+<script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>

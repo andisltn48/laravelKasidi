@@ -16,6 +16,7 @@ class transaksiTable extends Migration
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
+            $table->string('nama',40);
             $table->integer('jumlah_saldo')->nullable();
             $table->enum('jenis_pembayaran', ['Top-up', 'Pembayaran'])->nullable();
             $table->enum('status', ['Konfirmasi', 'Belum Terkonfirmasi'])->nullable();

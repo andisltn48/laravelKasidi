@@ -109,3 +109,15 @@ header.sticky .navbar .navbar-brand .navbar-item .fs-6{
 .userHome{
     max-height:100vh !important;
 }
+
+.bg-primary {
+    color: #fff
+}
+
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
