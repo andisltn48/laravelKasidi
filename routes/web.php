@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('task.pembayaran', tasksController::class)->shallow();
     Route::resource('profile', userProfileController::class);
     Route::resource('profile.editProfile', userProfileController::class)->shallow();
-    Route::resource('transaksi', transaksiController::class);
+    Route::resource('transaksi.updateStatus', transaksiController::class)->shallow();
 });
 
 
@@ -39,6 +39,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [homeController::class, 'index'])->middleware(['auth'])->name('home');
+Route::get('/transaksi', [transaksiController::class, 'index'])->middleware(['auth'])->name('transaksi');
 
 // Route::get('/home',[homeController::class, 'index'])->middleware(['auth'])->name('home');
 // Route::get('/profile',[userProfileController::class, 'index'])->middleware(['auth'])->name('profile');

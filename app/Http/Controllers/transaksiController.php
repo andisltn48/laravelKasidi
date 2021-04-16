@@ -31,4 +31,26 @@ class transaksiController extends Controller
 
 
     }
+
+    public function store($jenis){
+        $user = transaksi::where('jenis_pembayaran','=',$jenis)->update([
+            'status' => 'Konfirmasi',
+        ]);
+        $transaksi = transaksi::where('jenis_pembayaran','=',$jenis)->first();
+        $userSaldo = userAcc::where('user_id','=',$transaksi->user_id)->first();
+        if ($transaksi->status == 'Konfirmasi') {
+            if ($transaksi->jenis_pembayaran == 'Top-up') {
+                $userSaldo = userAcc::where('user_id','=',$transaksi->user_id)->update([
+                    'saldo' => $userSaldo->saldo + $transaksi->jumlah_saldo,
+                ]);
+            } else {
+                $userTask = tasks::where('user_id','=',$transaksi->user_id)->update([
+                    'status' => 'LUNAS',
+                ]);
+            }
+        }
+        $user = transaksi::where('status','=','Konfirmasi')->delete();
+
+        return redirect()->route('transaksi')->with('pesan', 'Konfirmasi Berhasil Dilakukan');
+    }
 }

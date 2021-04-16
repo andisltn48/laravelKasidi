@@ -29,6 +29,7 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>Jenis Transaksi</th>
+                                <th>Jumlah Transaksi</th>
                                 <th>Tanggal Transaksi</th>
                                 <th>Bukti Transaksi</th>
                                 <th>Validasi</th>
@@ -39,9 +40,14 @@
                                 <tr>
                                     <td>{{$data->nama}}</td>
                                     <td>{{$data->jenis_pembayaran}}</td>
+                                    <td>{{$data->jumlah_saldo}}</td>
                                     <td>{{$data->created_at}}</td>
                                     <td><img class="myImg" src="{{'images/fotoProfile/'.$data->bukti_pembayaran}}" style="width:100%;max-width:50px"></td>
-                                    <td class="text-center"><button class="btn btn btn-primary">Konfirmasi</button></td>
+                                    <td class="text-center">
+                                        <form action="{{ route('transaksi.updateStatus.store', $data->jenis_pembayaran) }}" method="POST">
+                                            <button class="btn btn-primary" type="submit">Konfirmasi</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             </tbody>
                         @endforeach
