@@ -43,7 +43,20 @@
                                     <td>{{$data->prodi}}</td>
                                     <td>{{$data->jurusan}}</td>
                                     <td>{{$data->saldo}}</td>
-                                    <td>Aksi</td>
+                                    <td class="text-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <form action="{{'/user/delete/'. $data->id}}" method="POST">
+                                                    <button class="btn btn-danger" type="submit">Hapus</button>
+                                                </form>
+                                            </div>
+                                            <div class="col">
+                                                <form action="{{route('task.add.create',$data->id)}}" method="GET">
+                                                    <button class="btn btn-primary" type="submit">Tambah Task</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         @endforeach

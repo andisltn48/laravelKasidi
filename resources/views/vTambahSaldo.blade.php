@@ -22,18 +22,18 @@
             <div class="form-group">
               <div class="form-group">
                   <label>Jumlah Saldo</label>
-                    
+
                   <input type="Text" name="jumlahSaldo" class="form-control">
               </div>
             </div>
-            <fieldset">
+            <fieldset>
               <div class="form-group">
                 <div class="form-group">
                   <label>Jenis Pembayaran</label>
                   <select name="jenisPembayaran" class="form-control" readonly/>
                     <option value="Top-up">Top-up</option>
                     {{-- <option value="Pembayaran">Pembayaran</option> --}}
-                  </select>         
+                  </select>
                 </div>
               </div>
             </fieldset>
@@ -53,7 +53,7 @@
             </div>
           </div>
           <!-- /.card-body -->
-    
+
           <div class="ml-auto">
             <button type="submit" class="btn btn-primary float-right">Submit</button>
           </div>

@@ -20,23 +20,32 @@
     <!-- Content Row -->
     <div class="row">
 
-        <!-- Saldo -->
+
+      <form action="{{route('saldo.update',$user->user_id)}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
         <div class="col-xl col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-3">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Saldo</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$saldoRupiah}}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-3">
+
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                              Saldo</div>
+
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{$saldoRupiah}}</div>
+
+                          <input type="hidden" name="saldo" value="{{$saldoRupiah}}">
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
+      </form>
 
     </div>
     <div class="card col-xl-7" style="position: relative; left: 0px; top: 0px;">
@@ -45,7 +54,7 @@
             <i class="ion ion-clipboard mr-1"></i>
             TASK
           </h3>
-    
+
           <div class="card-tools">
             <ul class="pagination pagination-sm">
               <li class="page-item"><a href="#" class="page-link">«</a></li>
@@ -56,7 +65,7 @@
             </ul>
           </div>
         </div>
-    
+
         <!-- /.card-header -->
         <div class="card-body">
           <ul class="todo-list ui-sortable" data-widget="todo-list">

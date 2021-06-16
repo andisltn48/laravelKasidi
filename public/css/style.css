@@ -1,6 +1,6 @@
 /* .scrolling-active {
     background-color: rgb(105, 105, 105);
-    
+
 } */
 * {
     /* font-family: manrope-regular !important; */
@@ -53,7 +53,7 @@ header.sticky .navbar .navbar-brand .navbar-item .fs-6{
     background-color: rgb(62, 211, 25);
     color: black;
 }
-/* .sc-login {    
+/* .sc-login {
     max-height: 100vh !important;
 } */
 .loginImage img {
@@ -78,7 +78,7 @@ header.sticky .navbar .navbar-brand .navbar-item .fs-6{
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: left; */
-    
+
 }
 .sideBar .text-white a {
     color: white;
@@ -121,3 +121,12 @@ header.sticky .navbar .navbar-brand .navbar-item .fs-6{
 }
 
 .myImg:hover {opacity: 0.7;}
+
+.photo-profile{
+    max-width: 15em;
+}
+
+.tengah{
+    padding: 50px;
+    text-align: center;
+}

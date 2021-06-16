@@ -16,6 +16,8 @@ class transaksi extends Model
         'jumlah_saldo',
         'jenis_pembayaran',
         'status',
-        'bukti_pembayaran'
+        'bukti_pembayaran',
+        'keterangan',
+        'tujuan'
     ];
 }

@@ -41,6 +41,7 @@ class userProfileController extends Controller
 
         ]);
         $user = User::where('id','=',$id)->update([
+            'name' => Request()->nama,
             'foto' => $fileName,
         ]);
 

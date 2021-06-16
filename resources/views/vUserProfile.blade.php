@@ -13,8 +13,8 @@
             @endif
 
                 <div class="row">
-                    <div class="col-auto m-5">
-                        <img class="rounded" src="{{ url('images/fotoProfile/' . $User->foto) }}" alt="">
+                    <div class="col-auto m-5 photo-profile">
+                        <img class="rounded photo-profile" src="{{ url('images/fotoProfile/' . $User->foto) }}" alt="">
                     </div>
                     <div class="col mt-5 ms-2">
                         <div class="nama">

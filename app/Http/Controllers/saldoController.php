@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\userAcc;
 use App\Models\User;
-use App\Models\user_saldo;
+use App\Models\saldo;
 use App\Models\transaksi;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,8 +32,8 @@ class saldoController extends Controller
         ]);
 
         $file = Request()->foto_pembayaran;
-        $fileName = Request()->nama . '.' .$file->extension();
-        $file->move(public_path('images/buktiPembayaran'), $fileName);
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('images/buktiTopUp'), $fileName);
         // $id = Auth::user()->id;
 
         // $data = [
@@ -55,5 +55,12 @@ class saldoController extends Controller
 
         return redirect()->route('home')->with('pesan', 'Saldo Berhasil Ditambahkan');
 
+    }
+
+    public function update($id){
+        $saldoupdate = userAcc::where('user_id',$id)->update([
+            'saldo' => Request()->saldo,
+        ]);
+        return redirect()->route('home')->with('pesan', 'Saldo Berhasil Ditambahkan');
     }
 }

@@ -33,7 +33,7 @@ class tasksController extends Controller
         ]);
 
         $file = Request()->foto_pembayaran;
-        $fileName = Request()->nama . '.' .$file->extension();
+        $fileName = $file->getClientOriginalName();
         $file->move(public_path('images/buktiPembayaran'), $fileName);
         // $id = Auth::user()->id;
 
